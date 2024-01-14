@@ -5,7 +5,7 @@ import pymysql as sql
 class connexion : 
     """Classe de connexion à la base de données"""
     def __init__(self) :
-        self.dbconnection = sql.connect(host="localhost", user='root', password='A1m2i3n4e5@', db='ppl')
+        self.dbconnection = sql.connect(host="localhost", user='root', password='A1m2i3n4e5@', db='GestSondage')
 
         self.cursor = self.dbconnection.cursor()
         

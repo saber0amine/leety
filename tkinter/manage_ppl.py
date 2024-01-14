@@ -59,12 +59,15 @@ class  interface(Frame) :
             user_email = self.email.get()
             user_sexe = self.radio_selected1.get()
             user_profil = self.profil_selected.get()
-            # req = "INSERT INTO personne (id , nomPrenom, sexe, dateNaiss, email, idProfil) VALUES (1, %s, %s, %s, %s, %s)"
-            # values = (user_name, user_sexe, user_date, user_email, user_profil)
+            req = "INSERT INTO personne (id , nomPrenom, sexe, dateNaiss, email, idProfil) VALUES (%s, %s, %s, %s, %s, %s)"
+            values = (24 , user_name, user_sexe, user_date, user_email, 5)
             
-            req = "INSERT INTO profil (id , libelle) VALUES (%s, %s)"
-            values = (3, user_profil)
+            # req = "INSERT INTO profil VALUES (%s)"
+            # values = (user_profil)
             self.db.cursor.execute(req, values)
+            self.db.commit_db()
+            self.db.cursor.execute("SELECT * FROM profil")
+            print(self.db.cursor.fetchall())
                     
 
 fenetre = Tk()
